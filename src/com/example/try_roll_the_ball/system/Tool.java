@@ -112,10 +112,10 @@ public class Tool extends Layer implements Cloneable{
 	}
 	
 	@Override
-	public boolean onTouchEvent(MotionEvent event) {
+	public boolean onTouchEvent(MotionEvent event, int touchEventFlag) {
 		// TODO Auto-generated method stub
 		if(shadowUtil!=null){
-			super.onTouchEvent(event);
+			super.onTouchEvent(event, touchEventFlag);
 			
 			switch (event.getAction()) {
 			case MotionEvent.ACTION_UP:			
@@ -136,7 +136,7 @@ public class Tool extends Layer implements Cloneable{
 	
 				if(shadowUtil!=null){
 					synchronized (shadowUtil) {
-						shadowUtil.onTouchEvent(event);
+						shadowUtil.onTouchEvent(event, touchEventFlag);
 						
 						if(toolCallback!=null)
 							toolCallback.movingTool(this,shadowUtil.getCenter().x,shadowUtil.getCenter().y);
@@ -147,7 +147,7 @@ public class Tool extends Layer implements Cloneable{
 			default:
 				break;
 			}
-		}else if(super.onTouchEvent(event)){
+		}else if(super.onTouchEvent(event, touchEventFlag)){
 			
 			switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
@@ -173,7 +173,7 @@ public class Tool extends Layer implements Cloneable{
 
 					if(shadowUtil!=null){
 						synchronized (shadowUtil) {
-							shadowUtil.onTouchEvent(event);
+							shadowUtil.onTouchEvent(event, touchEventFlag);
 						}
 					}
 				

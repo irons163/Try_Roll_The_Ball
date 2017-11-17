@@ -240,9 +240,8 @@ public class Backpack extends Layer{
 	}
 
 	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		// TODO Auto-generated method stub
-		if(super.onTouchEvent(event)){
+	public boolean onTouchEvent(MotionEvent event, int touchEventFlag) {
+		if(super.onTouchEvent(event, touchEventFlag)){
 			if(event.getAction()==MotionEvent.ACTION_DOWN){
 				if(backpackCallback!=null){
 					backpackCallback.isTouched();			
@@ -250,7 +249,7 @@ public class Backpack extends Layer{
 			}else if(event.getAction()==MotionEvent.ACTION_UP && isSplitMode){
 				if(moveToolDialogLayer==null)
 					moveToolDialogLayer = new MoveToolDialogLayer(StageManager.getCurrentStage(), 100, 100);
-				moveToolDialogLayer.onTouchEvent(event);
+				moveToolDialogLayer.onTouchEvent(event, touchEventFlag);
 			}
 			
 //			Tool tool = touchTool(event.getX(), event.getY());

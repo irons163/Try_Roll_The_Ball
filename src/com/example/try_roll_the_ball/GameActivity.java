@@ -34,12 +34,15 @@ public class GameActivity extends Stage{
 		}
 		BitmapUtil.initBitmap(this);
 	
-		LayerManager.setLayerBySenceIndex(0);
-		Scene scene = new MyScene(this, "a", 1, Scene.RESUME);
+//		LayerManager.setLayerBySenceIndex(0);
+		Scene scene = new MyScene(this, "a", 0, Scene.RESUME);
+//		scene.setWidth(CommonUtil.screenWidth);
+//		scene.setHeight(CommonUtil.screenHeight);
+		
 //		LayerManager.setLayerBySenceIndex(1);
 //		Scene scene2 = new MyScene2(this, "b", 2, Scene.RESTART);
 		
-		sceneManager = new SceneManager();
+		sceneManager = SceneManager.getInstance();
 		sceneManager.addScene(scene);
 //		sceneManager.addScene(scene2);
 		
@@ -52,7 +55,7 @@ public class GameActivity extends Stage{
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 //		super.onBackPressed();
-		sceneManager.previous();
+		sceneManager.previousWithExistedScenes();
 //		sceneManager.previousAndLeaveWhenNoPrevious();
 	}
 

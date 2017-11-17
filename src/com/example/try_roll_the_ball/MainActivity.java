@@ -58,7 +58,7 @@ public class MainActivity extends Stage {
 	@Override
 	public SceneManager initSceneManager() {
 		// TODO Auto-generated method stub
-		SceneManager sceneManager = new SceneManager();
+		SceneManager sceneManager = SceneManager.getInstance();
 		return sceneManager;
 	}
 }

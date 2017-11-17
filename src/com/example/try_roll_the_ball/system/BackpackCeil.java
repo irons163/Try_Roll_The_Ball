@@ -90,7 +90,7 @@ public class BackpackCeil extends Layer{
 	
 	public boolean isTouched(float x, float y){
 //		if(x >= getX() && x <= getX()+w && y >= getY() && y <= getY()+h)
-		if(x >= getLeft() && x <= getLeft()+w && y >= getTop() && y <= getTop()+h)
+		if(x >= getLeft() && x <= getLeft()+getWidth() && y >= getTop() && y <= getTop()+getHeight())
 			return true;
 		else
 			return false;

@@ -250,9 +250,28 @@ public class ShadowUtil extends ALayer{
 		
 		return false;
 	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event, int touchEventFlag) {
+		final float x = event.getX();
+		final float y = event.getY();
+		
+		if(event.getAction()==MotionEvent.ACTION_MOVE){
+//			PointF locationInScene = layer.locationInSceneByCompositeLocation(x, y);
+//			shadowOffsetX = locationInScene.x - layerXInScence - shadowTouchOffsetX;
+//			shadowOffsetY = locationInScene.y - layerYInScence - shadowTouchOffsetY;
+
+			shadowOffsetX = x - shadowTouchOffsetX;
+			shadowOffsetY = y - shadowTouchOffsetY;
+			
+			return true;
+		}
+		
+		return false;
+	}
 
 	@Override
-	protected void onTouched(MotionEvent event) {
+	public void onTouched(MotionEvent event) {
 		// TODO Auto-generated method stub
 		
 	}
